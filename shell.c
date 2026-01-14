@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define BUFFER_SIZE 1024 // define char user input
+#define BUFFER_SIZE 10 // define char user input
 
 int main(void) {
     char input[BUFFER_SIZE]; 
@@ -17,11 +17,12 @@ int main(void) {
         }
 
         if (strcmp(input, "exit") == 0) {
+            printf(" fin du shell suite a l'execution de la commande : %s\n", input);
             break;
         }
         
         
-        printf("Vous avez saisi: %s\n", input);
+        printf("test pour le retour d'input: %s\n", input);
         
         printf("cmd$ ");
     }

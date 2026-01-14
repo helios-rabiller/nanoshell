@@ -1,14 +1,17 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
+SRC = shell.c forktest.c
+TARGET = testshell
 
-main: cell.c
-	$(CC) $(CFLAGS) -o main cell.c
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
 clean:
-	del main.exe  # Windows
-	# ou rm -f main  # Linux/WSL
+	rm -f $(TARGET)
 
-run: main
-	./main.exe
+run: $(TARGET)
+	./$(TARGET)
 
-.PHONY: clean run
+.PHONY: all clean run
