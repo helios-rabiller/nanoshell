@@ -1,17 +1,14 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
-SRC = shell.c forktest.c
+# CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra 
+SRC = shell.c
 TARGET = testshell
 
-all: $(TARGET)
 
-$(TARGET): $(SRC)
+all: $(SRC)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
 clean:
 	rm -f $(TARGET)
 
-run: $(TARGET)
-	./$(TARGET)
-
-.PHONY: all clean run
+.PHONY: all clean

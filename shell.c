@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/waitpid.>
 
-#define BUFFER_SIZE 10 // define char user input
+#define BUFFER_SIZE 1024
 
 int main(void) {
     char input[BUFFER_SIZE]; 
