@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define BUFFER_SIZE 1024 // define user input
+#define BUFFER_SIZE 1024 // define char user input
 
 int main(void) {
     char input[BUFFER_SIZE]; 
@@ -13,7 +13,6 @@ int main(void) {
         
         if (strlen(input) == 0) {
             printf("cmd$ ");
-            free(input);
             continue;
         }
 
