@@ -1,14 +1,14 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+# CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra 
+SRC = shell.c
+TARGET = testshell
 
-main: shell.c
-	$(CC) $(CFLAGS) -o main shell.c
+
+all: $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
 clean:
-	del main.exe  # Windows
-	# ou rm -f main  # Linux/WSL
+	rm -f $(TARGET)
 
-run: main
-	./main.exe
-
-.PHONY: clean run
+.PHONY: all clean
