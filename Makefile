@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 
-main: cell.c
-	$(CC) $(CFLAGS) -o main cell.c
+main: shell.c
+	$(CC) $(CFLAGS) -o main shell.c
 
 clean:
 	del main.exe  # Windows
