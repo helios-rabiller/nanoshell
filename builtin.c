@@ -4,24 +4,32 @@
 #include <string.h>
 #include <unistd.h>
 
-int main (void) {
-int builtin(char **args) {
+int builtin(char **args)
+{
+    if (args == NULL || args[0] == NULL)
+        return 0;
+
     if (strcmp(args[0], "cd") == 0) {
-        if (strcmp(args[1], "..") == 0) {
-            chdir("..");
-            return 0;
-        }
-        else if (strcmp(args[1], "~") == 0) {
+        if (args[1] == NULL) {
             chdir(getenv("HOME"));
-            return 0;
         }
-        else if (args[1] != NULL && *args[1] != '\0') {
-            chdir(args[1]);
-            return 0;
+        else if (strcmp(args[1], "..") == 0) {
+            chdir("..");
         }
+        else {
+            if (chdir(args[1]) != 0)
+                perror("cd");
+        }
+        return 0;
     }
     return 0;
-}  
+}
 
-builtin("cd");
+int main(void)
+{
+    char *cmd1[] = {"cd", "..", NULL};
+
+    builtin(cmd1);
+
+    return 0;
 }
