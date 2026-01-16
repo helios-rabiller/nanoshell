@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <unistd.h>
 #define BUFFER_SIZE 1024
 
 int main(void) {
@@ -19,6 +19,22 @@ int main(void) {
         if (strcmp(input, "exit") == 0) {
             printf(" fin du shell suite a l'execution de la commande : %s\n", input);
             break;
+        }
+        if (strcmp(input, "cd") == 0) {
+            if (chdir("/") != 0) {
+                perror("chdir failed");
+            }
+            if (chdir("/home") != 0) {
+                perror("échec de chdir vers /home");
+            }
+            if (strcmp(input, "..") != 0) {
+                if (chdir("..") != 0) {
+                    perror("échec de chdir vers ..");
+                }
+            }
+
+            printf(" commande cd utilisé : %s\n", input);
+            printf(" répertoire courant après cd : ");
         }
         
         
