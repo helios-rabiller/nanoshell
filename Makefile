@@ -1,8 +1,8 @@
 CC = gcc
-# CFLAGS = -Wall -Wextra -Werror -g
-CFLAGS = -Wall -Wextra 
+CFLAGS = -Wall -Wextra -Werror 
+#CFLAGS = -Wall -Wextra 
 SRC = shell.c
-TARGET = testshell
+TARGET = main
 
 
 all: $(SRC)
